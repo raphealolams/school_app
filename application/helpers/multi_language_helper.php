@@ -17,9 +17,14 @@
 if ( ! function_exists('get_phrase'))
 {
 	function get_phrase($phrase = '') {
-    return;
-		$CI	=&	get_instance();
-		$CI->load->database();
+//    return;
+if(!$phrase)
+			{
+					 return ;
+			}
+	$phrase  = strtolower($phrase );
+	$CI    =&    get_instance();
+	$CI->load->database();
 		$current_language	=	$CI->db->get_where('settings' , array('type' => 'language'))->row()->description;
 
 		if ( $current_language	==	'') {
